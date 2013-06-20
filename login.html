@@ -7,13 +7,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>豌豆荚招聘职位管理</title>
-<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="resources/css/style.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="resources/css/invalid.css" type="text/css" media="screen" />
-<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
-<script type="text/javascript" src="resources/scripts/facebox.js"></script>
-<script type="text/javascript" src="resources/scripts/jquery.wysiwyg.js"></script>
+<link rel="stylesheet" href="./css/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./css/invalid.css" type="text/css" media="screen" />
 
 </head>
 <body id="login">
@@ -21,29 +17,29 @@
   <div id="login-top">
     <h1>豌豆荚</h1>
     <!-- Logo (221px width) -->
-    <a href="http://www.wandoujia.com"><img id="logo" src="resources/images/logo.png" alt="Simpla Admin logo" /></a> </div>
+    <a href="http://www.wandoujia.com"><img id="logo" src="./images/logo.png" /></a> </div>
   <!-- End #logn-top -->
   <div id="login-content">
-    <form action="index.html">
+    <form action="./php/login.php" method="post">
       <!-- <div class="notification information png_bg">
         <div> Just click "Sign In". No password needed. </div>
       </div> -->
       <p>
         <label>用户名</label>
-        <input class="text-input" type="text" />
+        <input class="text-input" type="text" name="user"/>
       </p>
       <div class="clear"></div>
       <p>
         <label>密码</label>
-        <input class="text-input" type="password" />
+        <input class="text-input" type="password" name="password"/>
       </p>
       <div class="clear"></div>
-      <p id="remember-password">
+      <!-- <p id="remember-password">
         <input type="checkbox" />
-        Remember me </p>
+        Remember me </p> -->
       <div class="clear"></div>
       <p>
-        <input class="button" type="submit" value="Sign In" />
+        <input class="button" type="submit" value="登录" />
       </p>
     </form>
   </div>
