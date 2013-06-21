@@ -79,13 +79,14 @@
 	}
 
 	//取出某个类别下的职位信息
-	function listJob($categoryId){
+	function listJobById($categoryId){
 		$sql="
-			select * from tb_jobCategory where id='$categoryId';
+			select * from tb_job where category='$categoryId';
 		";
 		$result=mysql_query($sql);
 		for ($i=0;$row = mysql_fetch_array($result);$i++){
 			$allJob[$i]['id']=$row['id'];
+			$allJob[$i]['title']=$row['title'];
 			$allJob[$i]['category']=$row['category'];
 			$allJob[$i]['describe']=$row['describe'];
 		}

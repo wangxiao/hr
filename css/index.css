@@ -4,46 +4,81 @@ a{
 }
 
 .wrapper{
-	width: 960px;
+	width: 1024px;
 	margin: 0 auto;
+	border: 1px solid #666;
+	position: relative;
 }
-
+.header{
+	height: 450px;
+	background-color: #000;
+}
+.header .photos img{
+	height: 450px;
+}
+.header .logo{
+	position: absolute;
+	top: 40px;
+	left: 60px;
+}
+.header .logo img{
+	width: 135px;
+}
+.header .title{
+	position: absolute;
+	top: 310px;
+	left: 60px;
+}
+.header .title img{
+	width: 420px;
+}
+.header .play-video{
+	position: absolute;
+	top: 190px;
+	left: 480px;
+	cursor: pointer;
+}
+.header .play-video img{
+	width: 70px;
+}
 .job{
 	background-color: #efefef;
 	height: 600px;
 }
 
 .job .job-category{
-	width: 240px;
+	width: 233px;
 	float: left;
+	margin-top: 20px;
 }
 
 .job .job-category .job-item{
-	margin: 20px 0px 20px 45px;
+	margin: 20px 0px 20px 58px;
 }
 
 .job .job-category .job-item p.category{
 	color: #7a7a7a;
 	font-size: 18px;
-	font-weight: bolder;
-	line-height: 30px;
+	font-weight: 900;
+	line-height: 33px;
 }
 
 .job .job-category .job-item ul.title-list li {
 	font-size: 15px;
-	line-height: 20px;
+	line-height: 21px;
 }
 
 .job .job-detail{
 	width: 700px;
 	float: left;
+	margin-top: 20px;
 }
 .job .job-detail p.title{
 	color: #818181;
-	font-size: 23px;
+	font-size: 28px;
 	font-weight: bolder;
 	line-height: 40px;
-	margin-top: 18px;
+	margin-top: 16px;
 }
 .job .job-detail p.describe{
 	color: #999999;
