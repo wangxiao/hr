@@ -93,6 +93,20 @@
 		return $allJob;
 	}
 
+	//取出职位信息
+	function getJob($id){
+		$sql="
+			select * from tb_job where id='$id';
+		";
+		$result=mysql_query($sql);
+		for ($i=0;$row = mysql_fetch_array($result);$i++){
+			$jobInfo[$i]['id']=$row['id'];
+			$jobInfo[$i]['title']=$row['title'];
+			$jobInfo[$i]['describe']=$row['describe'];
+		}
+		return $jobInfo;
+	}
+
 	//增加一个职位到对应类别下
 	function addJob($title,$describe,$categoryId){
 		$sql="
