@@ -15,7 +15,7 @@ $(document).ready(function(){
 		
 		$("#main-nav li a.no-submenu").click( // When a menu item with no sub menu is clicked...
 			function () {
-				window.location.href=(this.href); // Just open the link instead of a sub menu
+				window.open(this.href); // Just open the link instead of a sub menu
 				return false;
 			}
 		); 
