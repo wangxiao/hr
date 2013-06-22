@@ -11,5 +11,6 @@
   $responsibilities = $_POST['responsibilities'];
   $requirements = $_POST['requirements'];
   $category = $_POST['category'];
+  header("Location:".$url."php/admin.php");
   addJob($title,$des,$responsibilities,$requirements,$category);
 ?>
