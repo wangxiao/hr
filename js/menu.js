@@ -72,7 +72,7 @@ $(document).ready(function(){
 
     // Initialise jQuery WYSIWYG:
 		
-		$(".wysiwyg").wysiwyg(); // Applies WYSIWYG editor to any textarea with the class "wysiwyg"
+		// $(".wysiwyg").wysiwyg(); // Applies WYSIWYG editor to any textarea with the class "wysiwyg"
 
 });
   

@@ -1,3 +1,7 @@
+<?php
+  include './php/conn.php';
+  $jobCategory = listJobCategory();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,6 +38,9 @@
       <div class="play-video">
         <img src="./images/index/play-video.png">
       </div>
+      <div class="video">
+        <video id='video-element' controls="controls" width="800"><source src="http://v.wdjcdn.com/join.mp4" type="video/mp4"></video>
+      </div>
     </div>
     <!-- header end -->
     <!-- culture start -->
@@ -47,60 +54,28 @@
     <div class="job">
       <!-- job-category start -->
       <div class="job-category">
-        <div class="job-item">
-          <p class="category">设计</p>
-          <ul class="title-list">
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-          </ul>
-        </div>
 
+        <?php foreach($jobCategory as $key=>$value){ ?>
+        <!-- job item start -->
         <div class="job-item">
-          <p class="category">设计</p>
+          <p class="category"><?php echo $value['category'];?></p>
           <ul class="title-list">
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
+            <?php
+              $jobList = listJobById($value['id']);
+              foreach($jobList as $k=>$v){
+            ?>
+            <li><a class="get-job-info-btn" data-job-id="<?php echo $v['id'];?>"><?php echo $v['title'];?></a></li>
+            <?php }?>
           </ul>
         </div>
-
-        <div class="job-item">
-          <p class="category">设计</p>
-          <ul class="title-list">
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-            <li><a href="">资深视觉设计师</a></li>
-          </ul>
-        </div>
+        <!-- job item end -->
+        <?php } ?>
 
       </div>
       <!-- job-category end -->
       <!-- job-detail start -->
       <div class="job-detail">
-        <p class="title">资深视觉设计师</p>
-        <p class="describe">巴巴爸爸巴德斯利发简历开始点击拉法基劳动法拉克接待来访巴巴爸爸巴德斯利发简历开始点击拉法基劳动法拉克接待来访巴巴爸爸巴德斯利发简历开始点击拉法基劳动法拉克接待来访巴巴爸爸巴德斯利发简历开始点击拉法基劳动法拉克接待来访</p>
-        <h4>主要职责</h4>
-        <p class="responsibilities">
-        了未开封姐啊立刻加上带啦会计分录<br>
-        临时卡简单发了就阿拉斯加电缆附件阿里<br>
-        呆了快撒酒疯来设计阿来得及非拉的是<br>
-        是来得快就阿弗莱克技术老大<br>
-        的撒开发将垃圾但是两份<br>
-        </p>
-        <h4>职位要求</h4>
-        <p class="requirements"></p>
-        <p class="responsibilities">
-        巴巴爸爸巴德斯利发简历开始点击拉法基劳动法拉克接待来<br>
-        访巴巴爸爸巴德斯利发简历开始点击<br>
-        拉法基劳动法拉克接待来访巴巴爸<br>
-        爸巴德斯利发简历开始点击拉法基劳<br>
-        动法拉克接待来访巴巴爸爸巴德斯利发简历<br>
-        开始点击拉法基劳动法拉克接待来访<br>
-        </p>
+        
       </div>
       <!-- job-detail end -->
     </div>

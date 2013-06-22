@@ -25,7 +25,6 @@
 <script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="../js/menu.js"></script>
 <script type="text/javascript" src="../js/facebox.js"></script>
-<script type="text/javascript" src="../js/jquery.wysiwyg.js"></script>
 <script type="text/javascript" src="../js/admin.js"></script>
 
 </head>
@@ -79,6 +78,7 @@
           <a href="#" class="nav-top-item">其他功能</a>
           <ul>
             <li><a href="#">添加职位类别</a></li>
+            <li><a id="add-job-info-btn" href="#">添加职位信息</a></li>
             <!-- <li><a href="#">退出账号</a></li> -->
           </ul>
         </li>
@@ -91,12 +91,54 @@
 
   <div id="main-content">
     <!-- 在job-content插入职位列表等 -->
-    <div id="job-content"></div>
+    <div id="job-content">
 
+    </div>
     <div id="footer"> <small>&#169; Copyright 2013-3102 豌豆荚</small> </div>
     <!-- End #footer -->
   </div>
   <!-- End #main-content -->
+
+      <!-- 添加一个新的职位信息 -->
+      <form class="add-new-job-form" method="post" action="./addJob.php">
+        <fieldset>
+        <p>
+          <label>职位名称</label>
+          <input class="text-input small-input" type="text" name="title" value="<?php echo $jobInfo['title'];?>"/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+        </p>
+        <p>
+          <label>所属分类</label>
+          <select name="category" class="small-input">
+            <?php foreach($jobCategory as $key=>$value){ ?>
+            <option value="<?php echo $value['id'];?>"><?php echo $value['category'];?></option>
+            <?php } ?>
+          </select>
+        </p>
+        <p>
+          <label>职位简介</label>
+          <textarea class="text-input textarea" name="des" cols="79" rows="15"> 
+          </textarea>
+        </p>
+        <p>
+          <label>主要职责</label>
+          <textarea class="text-input textarea" name="responsibilities" cols="79" rows="15"> 
+          </textarea>
+        </p>
+        <p>
+          <label>职位要求</label>
+          <textarea class="text-input textarea" name="requirements" cols="79" rows="15"> 
+          </textarea>
+        </p>
+        <p>
+          <input class="button" type="submit" value="Submit" />
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+      </form>
+      <!-- 添加一个新的职位信息 end -->
+
 </div>
 </body>
 <!-- Download From www.exet.tk-->

@@ -30,14 +30,16 @@
           <!-- 一个条目 -->
           <tr>
             <td>
-              <a href="#">
+              <a>
                 <?php echo $value["title"];?>
               </a>
             </td>
             <td>|</td>
             <td>
               <!-- Icons -->
-              <a href="#" title="Edit"><img src="../images/icons/pencil.png" alt="Edit" /></a> <a href="#" title="Delete"><img src="../images/icons/cross.png" alt="Delete" /></a></td>
+              <a class="edit-job-btn" href="#" title="Edit" data-job-id="<?php echo $value['id'];?>"><img src="../images/icons/pencil.png" alt="Edit" /></a> 
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a class="del-job-btn" href="#" title="Delete" data-job-id="<?php echo $value['id'];?>"><img src="../images/icons/cross.png" alt="Delete" /></a></td>
           </tr>
           <!-- 一个条目 end -->
 <?php }?>

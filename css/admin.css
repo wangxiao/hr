@@ -6,3 +6,7 @@
 #main-content .content-box{
 	width: 900px;
 }
+
+.add-new-job-form{
+	display: none;
+}

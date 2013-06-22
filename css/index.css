@@ -43,7 +43,20 @@ a{
 .header .play-video img{
 	width: 70px;
 }
-
+.header .video{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 1024px;
+	height: 450px;
+	background-color: #000;
+}
+.header .video video{
+	position: absolute;
+	top: 0px;
+	left:120px;
+}
 .culture{
 	background-color: #fafafa;
 	height: 730px;
@@ -59,7 +72,7 @@ a{
 }
 .job{
 	background-color: #efefef;
-	height: 600px;
+	height: 800px;
 	border: 1px solid #e6e6e6;
 }
 
@@ -110,6 +123,14 @@ a{
 	margin-bottom: 3px;
 }
 
+.get-job-info-btn{
+	cursor: pointer;
+}
+.get-job-info-btn:hover{
+}
+.get-job-info-btn.is-show-now{
+	color: #5da457;
+}
 .jcarousel {
     position: relative;
     overflow: hidden;

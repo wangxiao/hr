@@ -31,8 +31,8 @@
 	// 检查并授予用户管理权限
 	function login($name,$password){
 		if(checkUser($name,$password)){
-			setcookie('name',$name,time()+3600);
-			setcookie('password',$password,time()+3600);
+			setcookie('name',$name,time()+3600*5);
+			setcookie('password',$password,time()+3600*5);
 			return true; 
 		}else{
 			return false;
@@ -88,7 +88,9 @@
 			$allJob[$i]['id']=$row['id'];
 			$allJob[$i]['title']=$row['title'];
 			$allJob[$i]['category']=$row['category'];
-			$allJob[$i]['describe']=$row['describe'];
+			$allJob[$i]['des']=$row['des'];
+			$allJob[$i]['responsibilities']=$row['responsibilities'];
+			$allJob[$i]['requirements']=$row['requirements'];			
 		}
 		return $allJob;
 	}
@@ -99,28 +101,26 @@
 			select * from tb_job where id='$id';
 		";
 		$result=mysql_query($sql);
-		for ($i=0;$row = mysql_fetch_array($result);$i++){
-			$jobInfo[$i]['id']=$row['id'];
-			$jobInfo[$i]['title']=$row['title'];
-			$jobInfo[$i]['describe']=$row['describe'];
-		}
-		return $jobInfo;
+		$row = mysql_fetch_array($result);
+		return $row;
 	}
 
 	//增加一个职位到对应类别下
-	function addJob($title,$describe,$categoryId){
+	function addJob($title,$des,$responsibilities,$requirements,$category){
 		$sql="
-			insert into tb_job (title,describe,category) value ('$title','$describe','$category');
+			insert into tb_job (title,des,responsibilities,requirements,category) value ('$title','$des','$responsibilities','$requirements','$category');
 		";
+		echo $sql;
 		mysql_query($sql) or die("添加失败");
 	}
 
 	//修改一个职位
-	function editJob($id,$title,$describe,$categoryId){
+	function editJob($id,$title,$des,$responsibilities,$requirements,$categoryId){
 		$sql="
-  			update tb_job set title='$title' describe='$describe' category='$categoryId' where id='$id';
+			update tb_job set title='$title',des='$des',responsibilities='$responsibilities',requirements='$requirements',category='$categoryId' where id='$id'
   		";
-  		mysql_query($sql) or die("修改失败");
+  		@mysql_query($sql) or die("修改失败");
+  		return true;
 	}
 
 	//删除一个职位
@@ -128,7 +128,9 @@
 		$sql_del="
 			delete from tb_job where id='$id';
 		";
+		echo $sql_del;
 		mysql_query($sql_del) or die("删除失败");
+		return true;
 	}
 
 ?>
