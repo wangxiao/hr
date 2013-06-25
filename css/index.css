@@ -61,6 +61,7 @@ a{
 	background-color: #fafafa;
 	height: 730px;
 	border: 1px solid #e6e6e6;
+	overflow: hidden;
 }
 .culture img{
 	display: block;
@@ -68,7 +69,7 @@ a{
 }
 .culture img.culture3{
 	display: block;
-	margin: 50px 0px 20px 47px;
+	margin: 50px 0px 20px 60px;
 }
 .job{
 	background-color: #efefef;
@@ -77,13 +78,13 @@ a{
 }
 
 .job .job-category{
-	width: 233px;
+	width: 300px;
 	float: left;
 	margin-top: 20px;
 }
 
 .job .job-category .job-item{
-	margin: 20px 0px 20px 58px;
+	margin: 20px 0px 20px 60px;
 }
 
 .job .job-category .job-item p.category{
@@ -94,12 +95,14 @@ a{
 }
 
 .job .job-category .job-item ul.title-list li {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 21px;
+	font-weight: 300;
+	color: #999;
 }
 
 .job .job-detail{
-	width: 760px;
+	width: 663px;
 	float: left;
 	margin-top: 20px;
 }
@@ -130,6 +133,7 @@ a{
 }
 .get-job-info-btn.is-show-now{
 	color: #5da457;
+	text-decoration:underline;
 }
 .jcarousel {
     position: relative;

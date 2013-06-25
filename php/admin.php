@@ -47,7 +47,7 @@
       <ul id="main-nav">
         <!-- Accordion Menu -->
         <li> 
-          <a href="http://www.wandoujia.com/" target="_blank" class="nav-top-item no-submenu">
+          <a href="../" target="_blank" class="nav-top-item no-submenu">
           <!-- Add the class "no-submenu" to menu items with no sub menu -->
           查看招聘页</a> 
         </li>
@@ -77,7 +77,7 @@
         <li> 
           <a href="#" class="nav-top-item">其他功能</a>
           <ul>
-            <li><a href="#">添加职位类别</a></li>
+            <li><a id="add-job-category-btn" href="#">添加职位类别</a></li>
             <li><a id="add-job-info-btn" href="#">添加职位信息</a></li>
             <!-- <li><a href="#">退出账号</a></li> -->
           </ul>
@@ -104,7 +104,7 @@
         <fieldset>
         <p>
           <label>职位名称</label>
-          <input class="text-input small-input" type="text" name="title" value="<?php echo $jobInfo['title'];?>"/>
+          <input class="text-input small-input" type="text" name="title" value=""/>
           <!-- Classes for input-notification: success, error, information, attention -->
         </p>
         <p>
@@ -139,6 +139,69 @@
       </form>
       <!-- 添加一个新的职位信息 end -->
 
+    <!-- 管理职位类别 -->
+    <div class="manage-job-category">
+      <!-- 添加一个新职位类别 -->
+      <form class="add-new-job-category-form" method="post" action="./addJobCategory.php">
+        <fieldset>
+        <p>
+          <label>职位类别名称</label>
+          <input class="text-input small-input" type="text" name="category" value=""/>
+          <!-- Classes for input-notification: success, error, information, attention -->
+        </p>
+        <p>
+          <input class="button" type="submit" value="Submit" />
+        </p>
+        </fieldset>
+        <div class="clear"></div>
+        <!-- End .clear -->
+      </form>
+      <!-- 添加一个新的职位类别 end -->
+
+      <div class="content-box">
+        <!-- Start Content Box -->
+        <div class="content-box-header">
+          <h3>职位列表</h3>
+        </div>
+        <!-- End .content-box-header -->
+        <div class="content-box-content">
+          <div class="tab-content default-tab" id="tab1">
+            <table>
+              <thead>
+                <tr>
+                  <th>名称</th>
+                  <th></th>
+                  <th>操作</th>
+                </tr>
+              </thead>
+              <tbody>
+      <?php foreach($jobCategory as $key=>$value){ ?>
+                <!-- 一个条目 -->
+                <tr>
+                  <td>
+                    <a>
+                      <?php echo $value["category"];?>
+                    </a>
+                  </td>
+                  <td>|</td>
+                  <td>
+                    <!-- Icons -->
+                    <a class="edit-job-category-btn" href="#" title="Edit" data-job-category-id="<?php echo $value['id'];?>"><img src="../images/icons/pencil.png" alt="Edit" /></a> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a class="del-job-category-btn" href="#" title="Delete" data-job-category-id="<?php echo $value['id'];?>"><img src="../images/icons/cross.png" alt="Delete" /></a></td>
+                </tr>
+                <!-- 一个条目 end -->
+      <?php }?>
+              </tbody>
+            </table>
+          </div>
+          <!-- End #tab1 -->
+        </div>
+        <!-- End .content-box-content -->
+      </div>
+      <!-- End .content-box -->   
+    </div>   
+    <!-- 管理职位类别 end -->
 </div>
 </body>
 <!-- Download From www.exet.tk-->

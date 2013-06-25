@@ -8,6 +8,7 @@
 	}
 	$categoryId=$_GET['category'];
 	$jobList = listJobById($categoryId);
+  if(count($jobList)>0){
 ?>
 <div class="content-box">
   <!-- Start Content Box -->
@@ -51,3 +52,20 @@
   <!-- End .content-box-content -->
 </div>
 <!-- End .content-box -->
+
+<?php }else{ ?>
+
+<div class="content-box">
+  <!-- Start Content Box -->
+  <div class="content-box-header">
+    <h3>职位列表</h3>
+  </div>
+  <!-- End .content-box-header -->
+  <div class="content-box-content">
+    <p>该职位类别下面没有职位信息，请去其他功能中添加职位信息中添加。</p>
+  </div>
+  <!-- End .content-box-content -->
+</div>
+<!-- End .content-box -->
+
+<?php } ?>
