@@ -30,7 +30,7 @@
         </ul>
       </div>
       <div class="logo">
-        <img src="./images/index/logo.png">
+        <a href="http://www.wandoujia.com"><img src="./images/index/logo.png"></a>
       </div>
       <div class="title">
         <img src="./images/index/title.png">

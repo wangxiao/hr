@@ -4,6 +4,7 @@
 	bottom: 0px;
 	left: 0px;
 	right: 0px;
+	z-index: -2;
 }
 
 #love #canvas{
@@ -16,7 +17,7 @@
 	position: fixed;
 	left: 900px;
 	right: 80px;
-	bottom: 200px;
+	bottom: 100px;
 	font-size: 20px;
 	font-weight: 300;
 	color: #c00;

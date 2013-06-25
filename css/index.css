@@ -39,6 +39,10 @@ a{
 	top: 190px;
 	left: 480px;
 	cursor: pointer;
+	opacity: 0.7;
+}
+.header .play-video:hover{
+	opacity: 1;
 }
 .header .play-video img{
 	width: 70px;
