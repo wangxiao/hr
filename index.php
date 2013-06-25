@@ -14,7 +14,7 @@
 <!-- <link rel="shortcut icon" href="/favicon.ico"> -->
 <link rel="stylesheet" href="./css/reset.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="./css/index.css" type="text/css" media="screen" />
-
+<link rel="stylesheet" type="text/css" href="./css/love.css">
 </head>
 <body>
   <div class="wrapper">
@@ -81,9 +81,19 @@
     </div>
     <!-- job detail end -->
   </div>
+
+  <div id='love'>
+    <canvas id="canvas" width="1100" height="900"></canvas>
+    <div class="word">
+      <p>Love is wonderful,like a dream.</p>
+      <p>For yangyang</p>
+    </div>
+  </div>
   <script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="./js/jquery.jcarousel-core.min.js"></script>
   <script type="text/javascript" src="./js/jquery.jcarousel-autoscroll.min.js"></script>
   <script type="text/javascript" src="./js/index.js"></script>
+  <script type="text/javascript" src="./js/love.js"></script>
+
 </body>
 </html>

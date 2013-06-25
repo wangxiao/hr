@@ -572,8 +572,6 @@
     };
 
 
-
-
     var tree = new Tree(canvas[0], width, height, opts);
     var showLoveNum = 0;
     function showLove(){
@@ -586,14 +584,17 @@
                 $('#love').css('background','url("'+tree.toDataURL('image/png')+'") no-repeat 50% 50%');
                 showFlow();
             }
-        },50);
+        },40);
     }
 
     function showFlow(){
         setInterval(function(){
-            tree.ctx.clearRect(0, 0, width, height);
+            tree.ctx.clearRect(0, 0, width, 750);
             tree.jump();
         },50);
+        setTimeout(function(){
+            $('#love .word').animate({'opacity':1},1000);
+        },2000);
     }
 
     function init(){
@@ -617,15 +618,5 @@
             }
         }
     });
-
-        // setInterval(function(){
-        //     // tree.flower(2);
-        //     tree.ctx.clearRect(0, 0, width, height);
-        //     tree.jump();
-        // },50);
-
-
-
-
 
 })(window);

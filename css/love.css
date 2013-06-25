@@ -1,0 +1,26 @@
+#love{
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+
+#love #canvas{
+	position: fixed;
+	left: 50%;
+	margin-left: -550px;
+}
+
+#love .word{
+	position: fixed;
+	left: 900px;
+	right: 80px;
+	bottom: 200px;
+	font-size: 20px;
+	font-weight: 300;
+	color: #c00;
+	text-align: right;
+	line-height: 25px;
+	opacity: 0;
+}
