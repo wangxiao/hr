@@ -15,6 +15,7 @@
         $conn=@mysql_connect($database,$dbadmin,$dbpassword) or die ("数据库无法连接!");
         mysql_query("set names utf8");
         mysql_select_db($dbname,$conn);
+        return $conn;
     }
 
     // 账号相关
@@ -25,7 +26,7 @@
         if(!isset($name) && !isset($password)){
             return false;
         }
-        connectDatabase();
+        $conn = connectDatabase();
         $sql_select="
             select password from tb_hrAdmin where name='$name';
         ";
@@ -34,6 +35,7 @@
         {
             return true;
         }
+        mysql_close($conn);
         return false;
     }
 
@@ -58,7 +60,7 @@
         if ($cacheResult) {
             return $cacheResult;
         }else{
-            connectDatabase();
+            $conn = connectDatabase();
             $sql="
                 select * from tb_jobCategory;
             ";
@@ -68,6 +70,7 @@
                 $allJobCategory[$i]['category']=$row['category'];
             }
             $memcache->set('wandouhr-listJobCategory', $allJobCategory, 3600); 
+            mysql_close($conn);
             return $allJobCategory;
         }
     }
@@ -80,7 +83,7 @@
         if ( $cacheResult ) {
             return $cacheResult;
         }else{
-            connectDatabase();
+            $conn = connectDatabase();
             $sql="
                 select * from tb_job where category='$categoryId';
             ";
@@ -93,7 +96,8 @@
                 $allJob[$i]['responsibilities']=$row['responsibilities'];
                 $allJob[$i]['requirements']=$row['requirements'];           
             }
-            $memcache->set('wandouhr-listJobById'.$categoryId, $allJob , 3600);            
+            $memcache->set('wandouhr-listJobById'.$categoryId, $allJob , 3600);        
+            mysql_close($conn);    
             return $allJob;
         }
     }
@@ -106,13 +110,14 @@
         if ( $cacheResult ) {
             return $cacheResult;
         }else{
-            connectDatabase();
+            $conn = connectDatabase();
             $sql="
                 select * from tb_job where id='$id';
             ";
             $result=mysql_query($sql);
             $row = mysql_fetch_array($result);          
             $memcache->set('wandouhr-getJob'.$id, $row , 3600); 
+            mysql_close($conn);
             return $row;
         }
     }

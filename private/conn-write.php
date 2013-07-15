@@ -1,7 +1,7 @@
 <?php
 
 	// 数据库基本信息
-	
+
 	// $database='localhost';
 	// $dbadmin='root';
 	// $dbpassword='wangxiao';
