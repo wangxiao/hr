@@ -1,61 +1,22 @@
 <?php
 
 	// 数据库基本信息
-	$database='localhost';
-	$dbadmin='root';
-	$dbpassword='wangxiao';
-	$dbname='wandouHr';
+	
+	// $database='localhost';
+	// $dbadmin='root';
+	// $dbpassword='wangxiao';
+	// $dbname='wandouHr';
     $conn=@mysql_connect($database,$dbadmin,$dbpassword) or die ("数据库无法连接!");
     mysql_query("set names utf8");
 	mysql_select_db($dbname,$conn);
 
 	// 账号相关
-
-	// 检查用户是否是管理员
-	function checkUser($name,$password){
-		if($name==NULL&&$password==NULL){
-			return false;
-		}
-		$sql_select="
-			select password from tb_hrAdmin
-			where name='$name';
-		";
-		$result=mysql_query($sql_select);
-		while($row = mysql_fetch_array($result))
-		{
-			return true;
-		}
-		return false;
-	}
-
-	// 检查并授予用户管理权限
-	function login($name,$password){
-		if(checkUser($name,$password)){
-			setcookie('name',$name,time()+3600*5);
-			setcookie('password',$password,time()+3600*5);
-			return true; 
-		}else{
-			return false;
-		}
-	}
-
 	//职位数据操作
 
 	//取出所有职位类别
-	function listJobCategory(){
-		$sql="
-			select * from tb_jobCategory;
-		";
-		$result=mysql_query($sql);
-		for ($i=0;$row = mysql_fetch_array($result);$i++){
-			$allJobCategory[$i]['id']=$row['id'];
-			$allJobCategory[$i]['category']=$row['category'];
-		}
-		return $allJobCategory;
-	}
-
 	//增加一个职位类别
 	function addJobCategory($category){
+		$category = mysql_real_escape_string($category);
 		$sql="
 			insert into tb_jobCategory (category) value ('$category');
 		";
@@ -64,6 +25,8 @@
 
 	//修改一个职位类别
 	function editJobCategory($id,$category){
+		$id = mysql_real_escape_string($id);
+		$category = mysql_real_escape_string($category);
 		$sql="
   			update tb_jobCategory set category='$category' where id='$id';
   		";
@@ -72,41 +35,22 @@
 
 	//删除一个职位类别
 	function delJobCategory($id){
+		$id = mysql_real_escape_string($id);
 		$sql_del="
 			delete from tb_jobCategory where id='$id';
 		";
 		mysql_query($sql_del) or die("删除失败");
 	}
 
-	//取出某个类别下的职位信息
-	function listJobById($categoryId){
-		$sql="
-			select * from tb_job where category='$categoryId';
-		";
-		$result=mysql_query($sql);
-		for ($i=0;$row = mysql_fetch_array($result);$i++){
-			$allJob[$i]['id']=$row['id'];
-			$allJob[$i]['title']=$row['title'];
-			$allJob[$i]['category']=$row['category'];
-			$allJob[$i]['des']=$row['des'];
-			$allJob[$i]['responsibilities']=$row['responsibilities'];
-			$allJob[$i]['requirements']=$row['requirements'];			
-		}
-		return $allJob;
-	}
-
 	//取出职位信息
-	function getJob($id){
-		$sql="
-			select * from tb_job where id='$id';
-		";
-		$result=mysql_query($sql);
-		$row = mysql_fetch_array($result);
-		return $row;
-	}
 
 	//增加一个职位到对应类别下
 	function addJob($title,$des,$responsibilities,$requirements,$category){
+		$title = mysql_real_escape_string($title);
+		$des = mysql_real_escape_string($des);
+		$responsibilities = mysql_real_escape_string($responsibilities);
+		$requirements = mysql_real_escape_string($requirements);
+		$category = mysql_real_escape_string($category);
 		$sql="
 			insert into tb_job (title,des,responsibilities,requirements,category) value ('$title','$des','$responsibilities','$requirements','$category');
 		";
@@ -116,6 +60,12 @@
 
 	//修改一个职位
 	function editJob($id,$title,$des,$responsibilities,$requirements,$categoryId){
+		$id = mysql_real_escape_string($id);
+		$title = mysql_real_escape_string($title);
+		$des = mysql_real_escape_string($des);
+		$responsibilities = mysql_real_escape_string($responsibilities);
+		$requirements = mysql_real_escape_string($requirements);
+		$categoryId = mysql_real_escape_string($categoryId);
 		$sql="
 			update tb_job set title='$title',des='$des',responsibilities='$responsibilities',requirements='$requirements',category='$categoryId' where id='$id'
   		";
@@ -125,6 +75,7 @@
 
 	//删除一个职位
 	function delJob($id){
+		$id = mysql_real_escape_string($id);
 		$sql_del="
 			delete from tb_job where id='$id';
 		";

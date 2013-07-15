@@ -1,10 +1,8 @@
 <?php
   //取得job信息，准备编辑
-  include 'conn.php';
-  $cookieUser=$_COOKIE['name'];
-  $cookiePassword=$_COOKIE['password']; 
+  include '../private/conn-read.php';
   $url = preg_replace("/php\/[^\/]*$/","",$_SERVER['REQUEST_URI']);
-  if(!checkUser($cookieUser,$cookiePassword)){
+  if(!$_SESSION['isLogin']){
     header("Location:".$url."login.html");
   }
   $jobId=$_GET['jobId'];

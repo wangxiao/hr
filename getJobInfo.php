@@ -1,5 +1,5 @@
 <?php
-  include './php/conn.php';
+  include './private/conn-read.php';
   $id = $_GET['id'];
   $jobInfo = getJob($id);  
 ?>

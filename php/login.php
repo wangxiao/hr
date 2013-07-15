@@ -1,5 +1,5 @@
 <?php
-	include "conn.php";
+	include "../private/conn-read.php";
 	$user=$_POST['user'];
 	$password=$_POST['password'];
 	// $password=md5($password);

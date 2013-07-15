@@ -581,7 +581,7 @@
             if( showLoveNum < 400 ){
                 showLove();
             }else{
-                $('#love').css('background','url("'+tree.toDataURL('image/png')+'") no-repeat 50% 50%');
+                $('#love').css('background','url("'+tree.toDataURL('image/png')+'") no-repeat 50% 0');
                 showFlow();
             }
         },40);
@@ -594,7 +594,7 @@
         },50);
         setTimeout(function(){
             $('#love .word').animate({'opacity':1},1000);
-        },2000);
+        },1800);
     }
 
     function init(){

@@ -79,8 +79,8 @@
     settings: {
       opacity      : 0,
       overlay      : true,
-      loadingImage : '../images/loading.gif',
-      closeImage   : '../images/closelabel.gif',
+      loadingImage : 'http://img.wdjimg.com/image/join/loading.gif',
+      closeImage   : 'http://img.wdjimg.com/image/join/closelabel.gif',
       imageTypes   : [ 'png', 'jpg', 'jpeg', 'gif' ],
       faceboxHtml  : '\
     <div id="facebox" style="display:none;"> \
@@ -97,7 +97,7 @@
                 </div> \
                 <div class="footer"> \
                   <a href="#" class="close"> \
-                    <img src="../images/closelabel.gif" title="close" class="close_image" /> \
+                    <img src="http://img.wdjimg.com/image/join/closelabel.gif" title="close" class="close_image" /> \
                   </a> \
                 </div> \
               </td> \

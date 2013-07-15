@@ -1,9 +1,7 @@
 <?php
-  include 'conn.php';
-  $cookieUser=$_COOKIE['name'];
-  $cookiePassword=$_COOKIE['password']; 
+  include '../private/conn-read.php';
   $url = preg_replace("/php\/[^\/]*$/","",$_SERVER['REQUEST_URI']);
-  if(!checkUser($cookieUser,$cookiePassword)){
+  if(!$_SESSION['isLogin']){
     header("Location:".$url."login.html");
   }
 ?>
@@ -17,15 +15,15 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <title>豌豆荚招聘职位管理</title>
-<link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/invalid.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../css/admin.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://s.wdjimg.com/style/css/biz/www/join/reset.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://s.wdjimg.com/style/css/biz/www/join/style.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://s.wdjimg.com/style/css/biz/www/join/invalid.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="http://s.wdjimg.com/style/css/biz/www/join/admin.css" type="text/css" media="screen" />
 
-<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
-<script type="text/javascript" src="../js/menu.js"></script>
-<script type="text/javascript" src="../js/facebox.js"></script>
-<script type="text/javascript" src="../js/admin.js"></script>
+<script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/menu.js"></script>
+<script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/facebox.js"></script>
+<script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/admin.js"></script>
 
 </head>
 <body>
@@ -36,7 +34,7 @@
     <div id="sidebar-wrapper">
       <!-- Logo (221px wide) -->
       <a href="http://www.wandoujia.com">
-        <img id="logo" src="../images/index/logo.png" />
+        <img id="logo" src="http://img.wdjimg.com/image/join/index/logo.png" />
       </a>
       <!-- Sidebar Profile links -->
       <div id="profile-links"> 快去招更多的豌豆吧
@@ -186,9 +184,9 @@
                   <td>|</td>
                   <td>
                     <!-- Icons -->
-                    <a class="edit-job-category-btn" href="#" title="Edit" data-job-category-id="<?php echo $value['id'];?>"><img src="../images/icons/pencil.png" alt="Edit" /></a> 
+                    <a class="edit-job-category-btn" href="#" title="Edit" data-job-category-id="<?php echo $value['id'];?>"><img src="http://img.wdjimg.com/image/join/icons/pencil.png" alt="Edit" /></a> 
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="del-job-category-btn" href="#" title="Delete" data-job-category-id="<?php echo $value['id'];?>"><img src="../images/icons/cross.png" alt="Delete" /></a></td>
+                    <a class="del-job-category-btn" href="#" title="Delete" data-job-category-id="<?php echo $value['id'];?>"><img src="http://img.wdjimg.com/image/join/icons/cross.png" alt="Delete" /></a></td>
                 </tr>
                 <!-- 一个条目 end -->
       <?php }?>

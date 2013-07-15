@@ -1,9 +1,7 @@
 <?php
-	include 'conn.php';
-	$cookieUser=$_COOKIE['name'];
-	$cookiePassword=$_COOKIE['password']; 
-	$url = preg_replace("/php\/[^\/]*$/","",$_SERVER['REQUEST_URI']);
-	if(!checkUser($cookieUser,$cookiePassword)){
+	include '../private/conn-read.php';
+  $url = preg_replace("/php\/[^\/]*$/","",$_SERVER['REQUEST_URI']);
+  if(!$_SESSION['isLogin']){
 		header("Location:".$url."login.html");
 	}
 	$categoryId=$_GET['category'];
@@ -38,9 +36,9 @@
             <td>|</td>
             <td>
               <!-- Icons -->
-              <a class="edit-job-btn" href="#" title="Edit" data-job-id="<?php echo $value['id'];?>"><img src="../images/icons/pencil.png" alt="Edit" /></a> 
+              <a class="edit-job-btn" href="#" title="Edit" data-job-id="<?php echo $value['id'];?>"><img src="http://img.wdjimg.com/image/join/icons/pencil.png" alt="Edit" /></a> 
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <a class="del-job-btn" href="#" title="Delete" data-job-id="<?php echo $value['id'];?>"><img src="../images/icons/cross.png" alt="Delete" /></a></td>
+              <a class="del-job-btn" href="#" title="Delete" data-job-id="<?php echo $value['id'];?>"><img src="http://img.wdjimg.com/image/join/icons/cross.png" alt="Delete" /></a></td>
           </tr>
           <!-- 一个条目 end -->
 <?php }?>
