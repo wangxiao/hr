@@ -89,11 +89,16 @@
       <p>For yangyang</p>
     </div>
   </div>
+
+  <div id="water">
+  </div>
+  
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery.jcarousel-core.min.js"></script>
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery.jcarousel-autoscroll.min.js"></script>
-  <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/index.js"></script>
+  <script type="text/javascript" src="./js/index2.js"></script>
   <script type="text/javascript" src="./js/love.js"></script>
+  <script type="text/javascript" src="./js/water.js"></script>
 
 </body>
 </html>
