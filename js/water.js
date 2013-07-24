@@ -139,24 +139,24 @@
 		} else {
 		
 			var radgrad = pointerCtx.createRadialGradient(this.width/2,this.height/2,0,	 this.width/2,this.height/2,this.height/2);
-			radgrad.addColorStop(0, '#4af');
-			radgrad.addColorStop(1, '#000');
+			radgrad.addColorStop(0, '#fff');
+			radgrad.addColorStop(1, '#fff');
 
 			this.ctxHelp.fillStyle = radgrad;
 			this.ctxHelp.fillRect(0,0,this.width,this.height);	
 			
-			this.ctxHelp.shadowColor = "white";
-			this.ctxHelp.shadowOffsetX = 0;
-			this.ctxHelp.shadowOffsetY = 0;
-			this.ctxHelp.shadowBlur = 10;
+			// this.ctxHelp.shadowColor = "white";
+			// this.ctxHelp.shadowOffsetX = 0;
+			// this.ctxHelp.shadowOffsetY = 0;
+			// this.ctxHelp.shadowBlur = 10;
 			
-			this.ctxHelp.textBaseline = "top";
-			this.ctxHelp.font = 'normal 200 45px verdana';
-			this.ctxHelp.fillStyle = "white";  
-			this.ctxHelp.fillText("Water Canvas", 10, (this.height/2)-40);  	
-			this.ctxHelp.font = 'normal 200 12px verdana';
-			this.ctxHelp.fillText("Move your mouse over this canvas to move the water.", 10, (this.height/2)+10); 
-			this.ctxHelp.fillText("By Almeros 2010, See http://code.almeros.com", 10, (this.height/2)+30);  	
+			// this.ctxHelp.textBaseline = "top";
+			// this.ctxHelp.font = 'normal 200 45px verdana';
+			// this.ctxHelp.fillStyle = "white";  
+			// this.ctxHelp.fillText("Water Canvas", 10, (this.height/2)-40);  	
+			// this.ctxHelp.font = 'normal 200 12px verdana';
+			// this.ctxHelp.fillText("Move your mouse over this canvas to move the water.", 10, (this.height/2)+10); 
+			// this.ctxHelp.fillText("By Almeros 2010, See http://code.almeros.com", 10, (this.height/2)+30);  	
 
 			// Get the canvas pixel data
 			var imgDataIn = this.ctxHelp.getImageData(0, 0, this.width, this.height);
@@ -710,7 +710,7 @@
 		// Create a drawing on the canvas
 		var radgrad = pointerCtx.createRadialGradient(width/2,height/2,0,  width/2,height/2,height/2);
 		radgrad.addColorStop(0, '#fff');
-		radgrad.addColorStop(1, '#000');
+		radgrad.addColorStop(1, '#fff');
 
 		pointerCtx.fillStyle = radgrad;
 		pointerCtx.fillRect(0,0,width,height);	
@@ -776,33 +776,39 @@
 			  };
 	})();
 
-	//页面效果
-	var pixel = create2DArray(createRadialCanvas(2,2));		
-	var raindrop = create2DArray(createRadialCanvas(4,4));
-	var finger = create2DArray(createRadialCanvas(14,14));
+	function init(id){
+		//页面效果
+		pixel = create2DArray(createRadialCanvas(2,2));		
+		raindrop = create2DArray(createRadialCanvas(4,4));
+		finger = create2DArray(createRadialCanvas(14,14));
 
-	var width = 350;
-	var height = 275;
+		var width = ($(document).width()-1024)/2;
+		var height = $('#'+id).height();
 
-	// Init the basic components
-	var waterModel = new WaterModel(width, height, {
-		resolution:2.0, 
-		interpolate:false, 
-		damping:0.985, 
-		clipping:5, 
-		evolveThreshold:0.05, 
-		maxFps:30, 
-		showStats:true
-	});				
-	var waterCanvas = new WaterCanvas(width, height, "water", waterModel, {
-		backgroundImageUrl:null, 
-		lightRefraction:9.0, 
-		lightReflection:0.1, 
-		showStats:true
-	});
-	// Init some utils
-	var rainMaker = new RainMaker(width, height, waterModel, raindrop);
-	enableMouseInteraction(waterModel, "water");	
+		// Init the basic components
+		var waterModel = new WaterModel(width, height, {
+			resolution:2.0, 
+			interpolate:false, 
+			damping:0.985, 
+			clipping:5, 
+			evolveThreshold:0.05, 
+			maxFps:30, 
+			showStats:false
+		});				
+		var waterCanvas = new WaterCanvas(width, height, id, waterModel, {
+			backgroundImageUrl:null, 
+			lightRefraction:9.0, 
+			lightReflection:0.1, 
+			showStats:false
+		});
+		// Init some utils
+		var rainMaker = new RainMaker(width, height, waterModel, raindrop);
+		enableMouseInteraction(waterModel, id);	
+	}
+
+	init('water-left');
+	init('water-right');
+	
 })(); 
 
 

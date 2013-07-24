@@ -17,6 +17,8 @@
 <link rel="stylesheet" type="text/css" href="http://s.wdjimg.com/style/css/biz/www/join/love.css">
 </head>
 <body>
+
+
   <div class="wrapper">
     <!-- header start -->
     <div class="header">
@@ -90,9 +92,10 @@
     </div>
   </div>
 
-  <div id="water">
+  <div id="water-left" style="position:fixed;top:0px;left:0px;bottom:0px;">
   </div>
-  
+  <div id="water-right" style="position:fixed;top:0px;right:0px;bottom:0px;">
+  </div>
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery-1.8.3.js"></script>
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery.jcarousel-core.min.js"></script>
   <script type="text/javascript" src="http://s.wdjimg.com/style/js/run/www/join/jquery.jcarousel-autoscroll.min.js"></script>

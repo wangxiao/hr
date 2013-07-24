@@ -34,15 +34,20 @@ $(function() {
     });
 
     //默认展示第一个数据
-    var id = window.location.hash.match(/#getJobInfo=(\d*)/)[1] || getJobInfoBtns.eq(0).attr('data-job-id');
+    var getJobInfoId;
+    if (!!window.location.hash.match(/#getJobInfo=(\d*)/)) {
+        getJobInfoId = window.location.hash.match(/#getJobInfo=(\d*)/)[1];
+    }else{
+        getJobInfoId = getJobInfoBtns.eq(0).attr('data-job-id');
+    }
     getJobInfoBtns.each(function(){
         var ele = $(this);
-        if (ele.attr('data-job-id')==id){
+        if (ele.attr('data-job-id')==getJobInfoId){
             ele.addClass("is-show-now");
         }
     });
-    jobDetailEles.load('getJobInfo.php?id='+ id);
-    window.location.hash = "getJobInfo="+id;
+    jobDetailEles.load('getJobInfo.php?id='+ getJobInfoId);
+    window.location.hash = "getJobInfo="+getJobInfoId;
 
     //播放视频
     $('.play-video').on('click',function(){
