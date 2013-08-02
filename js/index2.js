@@ -26,7 +26,7 @@ $(function() {
         var id = $(this).addClass('is-show-now').attr('data-job-id');
         window.location.hash = "getJobInfo="+id;
         jobDetailEles.animate({'opacity':0},100,function(){
-            jobDetailEles.load('getJobInfo.php?id='+id);
+            jobDetailEles.load('/join/getJobInfo.php?id='+id);
         });
         setTimeout(function(){
             jobDetailEles.animate({'opacity':1},100);
@@ -46,7 +46,7 @@ $(function() {
             ele.addClass("is-show-now");
         }
     });
-    jobDetailEles.load('getJobInfo.php?id='+ getJobInfoId);
+    jobDetailEles.load('/join/getJobInfo.php?id='+ getJobInfoId);
     window.location.hash = "getJobInfo="+getJobInfoId;
 
     //播放视频
