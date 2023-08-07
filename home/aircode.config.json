@@ -1,0 +1,11 @@
+{
+  "name": "Slack-ChatGPT",
+  "runtime": "node/v16",
+  "timeout": 60,
+  "region": "HK",
+  "envs": [
+    "SlackBotToken",
+    "OpenAISecret"
+  ],
+  "typescript": false
+}
